@@ -25,7 +25,7 @@
            (java.util Enumeration NoSuchElementException)
            (java.nio.channels Channels)))
 
-(defn- ^Servlet test-servlet
+(defn ^Servlet test-servlet
   [interceptor-service-fn]
   (servlets/servlet :service interceptor-service-fn))
 
@@ -89,7 +89,7 @@
   ([] (test-servlet-input-stream nil))
   ([input] (->servlet-input-stream input)))
 
-(defn- test-servlet-request
+(defn test-servlet-request
   [verb url & args]
   (let [{:keys [scheme host path query-string]} (parse-url url)
         options (apply array-map args)]
